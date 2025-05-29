@@ -1,16 +1,23 @@
+--loop practice 
+{% for j in range(26) %}
+   select {{ j }} as number {% if not loop.last %} union all {% endif %}
+{% endfor %}
+
 -- practice setting basic variables!
 
-{% set my_cool_string = 'wow! cool!' %}
-{% set my_second_cool_string = 'this is jinja!' %}
-{% set my_cool_number = 100 %}
+{% set cool_string = 'Wow cool beans!' %}
+{% set second_cool_string = 'this is jinja!' %}
+{% set my_fav_num = 26 %}
+
 
 -- practice printing basic variables!
 
-{{ my_cool_string }} {{ my_second_cool_string }} I want to write jinja for {{ my_cool_number }} years!
+{{ cool_string }} {{ second_cool_string }} I want to write jinja for {{ my_fav_num }} years!
 
 -- practice setting list variable!
 
-{% set my_animals = ['lemur', 'wolf', 'panther', 'tardigrade'] %}
+{% set animals = ['lemur', 'dingo', 'rhino', 'dog'] %}
+
 
 -- practice accessing items of list!
 -- items are accessed by the numeric index in the list
@@ -30,40 +37,48 @@
 
 -- practice with if statements!
 
-{%- set temperature = 45 %}
+{% set temperature = 80.0 %}
 
-{% if temperature < 65 %}
-    Time for a cappuccino!
+On a day like this, I especially like
+
+{% if temperature > 70.0 %}
+
+a refreshing lemon sorbet.
+
 {% else %}
-    Time for a cold brew!
-{% endif %} 
+
+A decadent chocolate lava cake.
+
+{% endif %}
+
 
 -- practice with nesting if statements and for loops!
 
-{% set foods = ['carrot', 'hotdog', 'cucumber', 'bell pepper'] %}
+{% set foods = ['radish', 'cucumber', 'chicken nugget', 'avocado'] %}
 
 {% for food in foods %}
-  {%- if food == 'hotdog' -%}
-    {%- set food_type = 'snack' -%}
-  {%- else -%} 
-    {% set food_type = 'vegetable' %}
-  {%- endif -%}
-
-  The humble {{ food }} is my favorite {{ food_type }}
-
+	{% if food == 'chicken nugget' %}
+		{% set food_type = 'snack' %}
+	{% else %}
+		{% set food_type = 'vegetable' %}
+	{% endif %}
+	The delicious {{ food }} is my favorite {{ food_type }}
 {% endfor %}
+
 
 -- practive with creating dictionaries!
 -- items accessed by keys!
 
-{% set websters_dict = {
-  'word' : 'data',
-  'speech_part' : 'noun',
-  'definition' : 'if you know you know'
-} -%}
+{% set jennas_dictionary = {
+   'word' :'data',
+   'part_of_speech' : 'noun',
+   'definition' : 'the building block of life'
+} %}
 
-{{ websters_dict['word'] }} ({{ websters_dict['speech_part'] }}): defined as "{{ websters_dict['definition'] }}"
+{{ jennas_dictionary['word'] }}
 
+
+{{ jennas_dictionary['word'] }} ({{ jennas_dictionary['part_of_speech'] }}): defined as "{{ jennas_dictionary['definition'] }}"
 
 
 
