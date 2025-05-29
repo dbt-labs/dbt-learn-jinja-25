@@ -3,7 +3,7 @@ version: 2
 sources:
     - name: jaffle_shop
       description: A clone of a Postgres application database.
-      database: dbt-tutorial
+      database: raw
       tables:
         - name: customers
           description: Raw customers data.
@@ -16,7 +16,6 @@ sources:
 
         - name: orders
           description: Raw orders data.
-          database: dbt-tutorial
           columns:
             - name: id
               description: Primary key for orders.

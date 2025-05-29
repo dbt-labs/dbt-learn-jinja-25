@@ -2,6 +2,6 @@ version: 2
 
 sources:
     - name: stripe
-      database: dbt-tutorial
+      database: raw
       tables:
         - name: payment
