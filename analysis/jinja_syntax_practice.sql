@@ -12,7 +12,8 @@
 
 -- practice printing basic variables!
 
-{{ cool_string }} {{ second_cool_string }} I want to write jinja for {{ my_fav_num }} years!
+{{ cool_string }} {{ second_cool_string }} 
+I want to write jinja for {{ my_fav_num }} years!
 
 -- practice setting list variable!
 
@@ -33,7 +34,7 @@
   
   My favorite animal is the {{ animal }}
 
-{%- endfor %}
+{% endfor %}
 
 -- practice with if statements!
 
