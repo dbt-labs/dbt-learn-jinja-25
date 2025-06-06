@@ -17,7 +17,7 @@ I want to write jinja for {{ my_fav_num }} years!
 
 -- practice setting list variable!
 
-{% set animals = ['lemur', 'dingo', 'rhino', 'dog'] %}
+{% set my_animals = ['lemur', 'dingo', 'rhino', 'dog'] %}
 
 
 -- practice accessing items of list!

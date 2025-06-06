@@ -35,4 +35,6 @@ models:
   dbt_learn_jinja:
       # Applies to all files under models/example/
       audit:
-          +enabled: false
+        +enabled: false
+      snowflake_spend:
+        enabled: true
