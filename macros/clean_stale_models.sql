@@ -7,7 +7,7 @@
 
 #}
 
-{% macro clean_stale_models(database=target.database, schema=target.schema, days=7, dry_run=true) %}
+{% macro clean_stale_models(database=target.database, schema=target.schema, days=2, dry_run=true) %}
     
 
     {% set get_drop_commands_query %}
@@ -20,6 +20,7 @@
         
     {% endset %}
 
+    
     {{ log('\nGenerating cleanup queries...\n', info=True) }}
     {% set drop_queries = run_query(get_drop_commands_query).columns[1].values() %}
 
