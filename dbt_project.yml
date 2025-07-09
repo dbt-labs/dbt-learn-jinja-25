@@ -38,3 +38,5 @@ models:
         +enabled: false
       snowflake_spend:
         enabled: true
+      staging:
+        +schema: staging
