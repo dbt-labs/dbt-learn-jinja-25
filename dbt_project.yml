@@ -7,7 +7,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'dbt-learn'
+profile: 'jaffle_shop'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -34,9 +34,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_learn_jinja:
       # Applies to all files under models/example/
-      audit:
-        +enabled: false
+      #audit:
+        #+enabled: false
       snowflake_spend:
-        enabled: true
+        +enabled: true
       staging:
         +schema: staging
+
+dbt-cloud:
+    project-id: 100791
