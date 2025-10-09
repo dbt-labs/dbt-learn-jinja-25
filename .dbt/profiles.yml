@@ -1,0 +1,13 @@
+jaffle_shop:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      user: dbtlabs_jbushspies
+      warehouse: transforming
+      password: "{{ env_var('DBT_PW') }}"
+      account: fka50167
+      database: analytics
+      role: transformer
+      threads: 16
+      schema: dbt_jbushspies

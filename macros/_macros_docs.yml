@@ -1,19 +1,33 @@
 macros:
   - name: cents_to_dollars
-    description: A macro that converts dollars tro cents and rounds to the uder input decimal places, or 2 if none is provided
+    description: "Convert an amount in cents to dollars, with a specified number of decimal places (default is 2)."
     arguments:
       - name: column_name
+        description: "The name of the column containing the amount in cents."
         type: string
-        description: The name of the column you want to convert
       - name: decimals
+        description: "The number of decimal places to round to (default is 2)."
         type: integer
-        description: number of decimal places, defaults to 2
-  - name: grant_select 
-    description: a macro that grants select privs on target.schema to target.role unless otherwise specified
+        default: 2
+    returns: "A SQL expression that converts the amount from cents to dollars."
+    examples:
+      - description: "Convert the 'amount' column from cents to dollars with default 2 decimal places."
+        code: "{{ cents_to_dollars('amount') }}"
+      - description: "Convert the 'amount' column from cents to dollars with 4 decimal places."
+        code: "{{ cents_to_dollars('amount', 4) }}"
+  - name: grant_select
+    description: "Generate a SQL GRANT statement to give SELECT permissions for a set of tables.views to a specified role for a specified database."
     arguments:
-        - name: schema
-          type: string
-          description: schema we want to grant privs on, by default is our target schema
-        - name: role
-          type: string
-          description: role we want to grant privs to, by default is our target role
+      - name: schema_name
+        description: "The name of the schema to grant SELECT permissions on."
+        type: string
+      - name: role_name
+        description: "The name of the role to grant SELECT permissions to."
+        type: string
+      - name: database
+        description: "The name of the database to grant SELECT permissions on."
+        type: string
+    returns: "A SQL GRANT statement as a string."
+    examples:
+      - description: "Grant SELECT permissions on schema to 'my_role'."
+        code: "{{ grant_select('my_schema', 'my_role', 'my_database') }}"
